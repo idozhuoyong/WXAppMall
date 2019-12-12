@@ -1,8 +1,15 @@
 //index.js
-const WXAPI = require("apifm-wxapi")
-WXAPI.init('idozhuoyong') // 初始化使用专属域名
 
 Page({
+  /**
+   * 页面绑定的数据
+   */
   data: {
+  },
+
+  /**
+   * 生命周期
+   */
+  onLoad: function() {
   }
 })

@@ -8,7 +8,7 @@ App({
   },
 
   /**
-   * 监听页面加载
+   * 监听小程序初始化
    */
   onLaunch: function () {
     
