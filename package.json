@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/idozhuoyong/WXAppMall#readme",
   "dependencies": {
-    "apifm-wxapi": "^2.4.0"
+    "apifm-wxapi": "^2.4.0",
+    "weui-miniprogram": "^0.3.0"
   }
 }
