@@ -1,0 +1,22 @@
+{
+  "name": "wxappmall",
+  "version": "1.0.0",
+  "description": "微信小程序，商城开发学习",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://idozhuoyong@github.com/idozhuoyong/WXAppMall.git"
+  },
+  "author": "idozhuoyong",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/idozhuoyong/WXAppMall/issues"
+  },
+  "homepage": "https://github.com/idozhuoyong/WXAppMall#readme",
+  "dependencies": {
+    "apifm-wxapi": "^2.4.0"
+  }
+}
