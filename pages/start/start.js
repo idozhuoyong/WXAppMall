@@ -1,7 +1,8 @@
 // pages/start/start.js
 const WXAPI = require("apifm-wxapi")
 WXAPI.init('idozhuoyong') // 初始化使用专属域名
-
+const keyIsFirstStart = "keyIsFirstStart";
+let _this = undefined;
 
 Page({
   /**
@@ -16,6 +17,19 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    _this = this;
+    wx.getStorage({
+      key: keyIsFirstStart,
+      success: function(res) {
+        // console.log(res);
+        if (res.data === "false" && _this.data.banners.length === 0) {
+          // 跳转页面
+          wx.switchTab({
+            url: '/pages/index/index',
+          });
+        }
+      },
+    })
     // 请求启动 banner 图
     WXAPI.banners({"type": "app"}).then(res => {
       // console.log(res);
@@ -108,8 +122,16 @@ Page({
    */
   onHandlerToMall: function(event) {
     console.log("进入店铺");
-    // wx.reLaunch({
-    //   url: '/pages/index/index',
-    // })
+    
+    // 存储标识
+    wx.setStorage({
+      key: keyIsFirstStart,
+      data: 'false',
+    });
+
+    // 跳转页面
+    wx.switchTab({
+      url: '/pages/index/index',
+    });
   }
 })

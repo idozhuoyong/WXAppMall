@@ -1,1 +1,6 @@
-<!--index.wxml-->
+<!--pages/index/index.wxml-->
+<view class="container">
+  <view class="weui-search-bar">
+    
+  </view>
+</view>

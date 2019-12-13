@@ -1,2 +1,7 @@
 /**app.wxss**/
 @import "./miniprogram_npm/weui-miniprogram/weui-wxss/dist/style/weui.wxss";
+
+.container {
+  width: 100vw;
+  height: 100vh;  
+}
