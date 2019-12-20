@@ -1,6 +1,6 @@
 <!--pages/index/index.wxml-->
 <view class="container">
-  <view class="weui-search-bar">
-    
+  <view class="page__bd">
+      <mp-searchbar bindselectresult="selectResult" search="{{search}}"></mp-searchbar>
   </view>
 </view>

@@ -1,1 +1,4 @@
 /* pages/index/index.wxss */
+.page__bd {
+    width: 100%;
+}
