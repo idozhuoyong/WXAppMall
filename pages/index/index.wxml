@@ -1,6 +1,16 @@
 <!--pages/index/index.wxml-->
 <view class="container">
+  <!-- 搜索部分 -->
   <view class="page__bd">
-      <mp-searchbar bindselectresult="selectResult" search="{{search}}"></mp-searchbar>
+      <mp-searchbar bindselectresult="selectResult"></mp-searchbar>
+  </view>
+  <!-- 通知 -->
+  <view class="notice">
+    <image class="notice_icon" src="/images/common/notice.png"></image>
+    <swiper class="notice_swiper">
+        <swiper-item class="notice_swiper_item">
+            <text>111112233111112233111112233111112233111112233111112233aaaassss</text>
+        </swiper-item>
+    </swiper>
   </view>
 </view>

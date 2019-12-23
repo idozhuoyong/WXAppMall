@@ -2,3 +2,23 @@
 .page__bd {
     width: 100%;
 }
+.notice {
+    display: flex;
+    height: 80rpx;
+    line-height: 80rpx;
+}
+.notice_icon {
+    width: 30rpx;
+    height: 30rpx;
+    margin-top: 25rpx;
+    margin-left: 25rpx;
+}
+.notice_swiper {
+    width: 680rpx;
+    margin-left: 15rpx;
+    height: 80rpx;
+    line-height: 80rpx;
+}
+.notice_swiper_item {
+
+}
