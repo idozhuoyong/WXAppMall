@@ -38,7 +38,7 @@
 
 .goodsCategory_box {
     width: 750rpx;
-    height: 300rpx;
+    height: 350rpx;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -50,12 +50,13 @@
     box-sizing: border-box;
     padding: 25rpx;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 .goodsCategory_item_icon {
     width: 70rpx;
-    height: 70rpx;;
+    height: 70rpx;
 }
 .goodsCategory_item_text {
     width: 100rpx;

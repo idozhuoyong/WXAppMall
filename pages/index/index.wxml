@@ -8,8 +8,16 @@
     <!-- 通知 -->
     <view class="notice" wx:if="{{noticeList.length > 0}}">
         <image class="notice_icon" src="/images/common/notice.png"></image>
-        <swiper class="notice_swiper" autoplay="true" interval="3000" circular="true" vertical="true">
-            <swiper-item class="notice_swiper_item" wx:for="{{noticeList}}" wx:key="id">
+        <swiper 
+            class="notice_swiper" 
+            autoplay="true" 
+            interval="3000" 
+            circular="true" 
+            vertical="true">
+            <swiper-item 
+                class="notice_swiper_item" 
+                wx:for="{{noticeList}}" 
+                wx:key="id">
                 <text>{{item.title}}</text>
             </swiper-item>
         </swiper>
@@ -17,12 +25,22 @@
 
     <!-- 商品类别 -->
     <view class="goodsCategory_box" wx:if="{{goodsCategory.length > 0}}">
-        <view class="" wx:for="{{goodsCategory}}" wx:key="id">
-            <view class="goodsCategory_item">
-                <image class="goodsCategory_item_icon" src="{{item.icon}}"></image>
-                <text class="goodsCategory_item_text">{{item.name}}</text>
-            </view>
-        </view>
+        <swiper 
+            class="goodsCategory_box" 
+            indicator-dots="{{goodsCategory.length > 1 ? true : false}}">
+            <swiper-item 
+                class="goodsCategory_box"
+                wx:for="{{goodsCategory}}" 
+                wx:for-item="goodsCategoryDatas" 
+                wx:key="*this">
+                <view class="" wx:for="{{goodsCategoryDatas}}" wx:key="id">
+                    <view class="goodsCategory_item">
+                        <image class="goodsCategory_item_icon" src="{{item.icon}}"></image>
+                        <text class="goodsCategory_item_text">{{item.name}}</text>
+                    </view>
+                </view>
+            </swiper-item>
+        </swiper>
     </view>
 
 </view>

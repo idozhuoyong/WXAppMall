@@ -33,10 +33,24 @@ Page({
     // 获取商品分类
     getGoodsCategory() {
         WXAPI.goodsCategory().then(res => {
-            console.log(res);
+            // console.log(res);
             if (res.code === 0) {
+                let data = res.data;
+                // 数据处理
+                let goodsCategory = [];
+                let tempArr = [];
+                for (let i = 0; i < data.length; i++) {
+                    if (i !== 0 && i % 10 === 0) {
+                        goodsCategory.push(tempArr.concat());
+                        tempArr = [];
+                    }
+                    tempArr.push(data[i]);
+                }
+                goodsCategory.push(tempArr.concat());
+
+                // console.log(goodsCategory);
                 this.setData({
-                    goodsCategory: res.data
+                    goodsCategory: goodsCategory
                 });
             }
         });
