@@ -34,6 +34,7 @@
     white-space: nowrap;
     text-overflow: ellipsis;
     /* letter-spacing: 10rpx; */
+    font-size: 24rpx;
 }
 
 .goodsCategory_box {
@@ -61,7 +62,9 @@
 .goodsCategory_item_text {
     width: 100rpx;
     height: 30rpx;
+    line-height: 30rpx;
     text-align: center;
+    font-size: 24rpx;
 }
 
 .banners_box {
@@ -75,4 +78,23 @@
 .banners_item_icon {
     width: 100%;
     height: 100%;
+}
+
+.item_title_box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20rpx;
+}
+.item_title {
+    float: left;
+    height: 40rpx;
+    line-height: 40rpx;
+    font-size: 24rpx;
+}
+.line {
+    width: 100rpx;
+    border: 1px solid #eee;
+    float: left;
+    margin: 19.5rpx 15rpx;
 }

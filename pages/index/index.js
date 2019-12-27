@@ -9,7 +9,8 @@ Page({
     data: {
         noticeList: [], // 公告列表
         goodsCategory: [], // 商品类别
-        banners: [] // 商品轮播
+        banners: [], // 商品轮播
+        goodsRecommend: [] // 爆品推荐
     },
     onLoad() {
         // 获取公告
@@ -18,6 +19,8 @@ Page({
         this.getGoodsCategory();
         // 获取商品轮播图
         this.getBanners();
+        // 获取商品
+        this.getGoods();
     },
 
     // 获取公告
@@ -63,7 +66,7 @@ Page({
         WXAPI.banners({
             type: "new"
         }).then(res => {
-            console.log(res);
+            // console.log(res);
             if (res.code === 0) {
                 this.setData({
                     banners: res.data
@@ -71,7 +74,19 @@ Page({
             }
         });
     },
-
+    // 获取商品
+    getGoods() {
+        WXAPI.goods({
+            recommendStatus: "1"
+        }).then(res => {
+            console.log(res);
+            if (res.code === 0) {
+                this.setData({
+                    goodsRecommend: res.data
+                });
+            }
+        });
+    },
     // 搜索
     selectResult(e) {
         console.log('select result', e.detail)

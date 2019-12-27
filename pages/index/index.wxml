@@ -52,4 +52,12 @@
         </swiper>
     </view>
 
+    <!-- 爆品推荐 -->
+    <view class="">
+        <view class="item_title_box">
+            <view class="line"></view>
+            <view class="item_title"><text>爆品推荐</text></view>
+            <view class="line"></view>
+        </view>
+    </view>
 </view>
