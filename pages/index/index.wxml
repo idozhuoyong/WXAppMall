@@ -43,4 +43,13 @@
         </swiper>
     </view>
 
+    <!-- 商品轮播 -->
+    <view class="banners_box" wx:if="{{banners.length > 0}}">
+        <swiper class="banners_box" autoplay="true" indicator-dots="true" indicator-active-color="#fff" circular="true">
+            <swiper-item class="banners_item" wx:for="{{banners}}" wx:key="indicator">
+                <image class="banners_item_icon" src="{{item.picUrl}}"></image>
+            </swiper-item>
+        </swiper>
+    </view>
+
 </view>

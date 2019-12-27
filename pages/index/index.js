@@ -9,12 +9,15 @@ Page({
     data: {
         noticeList: [], // 公告列表
         goodsCategory: [], // 商品类别
+        banners: [] // 商品轮播
     },
     onLoad() {
         // 获取公告
         this.getNoticeList();
         // 获取商品分类
         this.getGoodsCategory();
+        // 获取商品轮播图
+        this.getBanners();
     },
 
     // 获取公告
@@ -51,6 +54,19 @@ Page({
                 // console.log(goodsCategory);
                 this.setData({
                     goodsCategory: goodsCategory
+                });
+            }
+        });
+    },
+    // 获取商品轮播图
+    getBanners() {
+        WXAPI.banners({
+            type: "new"
+        }).then(res => {
+            console.log(res);
+            if (res.code === 0) {
+                this.setData({
+                    banners: res.data
                 });
             }
         });

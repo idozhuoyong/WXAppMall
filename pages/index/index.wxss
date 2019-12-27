@@ -63,3 +63,16 @@
     height: 30rpx;
     text-align: center;
 }
+
+.banners_box {
+    width: 750rpx;
+    height: 250rpx;
+}
+.banners_item {
+    width: 100%;
+    height: 100%;
+}
+.banners_item_icon {
+    width: 100%;
+    height: 100%;
+}
