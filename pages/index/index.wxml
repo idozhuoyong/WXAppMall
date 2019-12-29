@@ -53,11 +53,25 @@
     </view>
 
     <!-- 爆品推荐 -->
-    <view class="">
+    <view class="" wx:if="{{goodsRecommend.length > 0}}">
         <view class="item_title_box">
             <view class="line"></view>
             <view class="item_title"><text>爆品推荐</text></view>
             <view class="line"></view>
         </view>
+        <!-- 商品展示 -->
+        <view class="goods_container">
+          <view class="goods_box" wx:for="{{goodsRecommend}}" wx:key="id">
+            <view class="goods_img_box">
+              <image class="goods_img" src="{{item.pic}}"></image>
+            </view>
+            <view class="goods_title"><text>{{item.name}}</text></view>
+            <view class="goods_price">
+              <view class="goods_price_current"><text>￥{{item.minPrice}}</text></view>
+              <view class="goods_price_original"><text>￥{{item.originalPrice}}</text></view>
+            </view>
+          </view>
+        </view>
+        <view style="height: 10rpx; background-color: #efefef;"></view>
     </view>
 </view>

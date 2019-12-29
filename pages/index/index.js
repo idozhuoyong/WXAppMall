@@ -76,10 +76,12 @@ Page({
     },
     // 获取商品
     getGoods() {
+        // bao'pin推荐
         WXAPI.goods({
             recommendStatus: "1"
         }).then(res => {
             console.log(res);
+            console.log
             if (res.code === 0) {
                 this.setData({
                     goodsRecommend: res.data
