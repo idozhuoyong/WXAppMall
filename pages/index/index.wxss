@@ -130,7 +130,7 @@
 }
 
 .goods_img_box {
-    width: 340rpx;
+    width: 320rpx;
     height: 300rpx;
     padding: 0 0 15rpx 0;
 }
@@ -175,4 +175,14 @@
     color: #999;
     font-size: 24rpx;
     text-decoration: line-through #999;
+}
+
+.loadmore_box {
+    background-color: #efefef;
+    padding: 15rpx 0;
+    color: #999;
+    font-size: 24rpx;
+}
+.loadmore_text {
+    text-align: center;
 }

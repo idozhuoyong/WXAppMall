@@ -2,6 +2,7 @@
     "enablePullDownRefresh": true,
     "backgroundTextStyle": "dark",
     "usingComponents": {
-        "mp-searchbar": "/miniprogram_npm/weui-miniprogram/searchbar/searchbar"
+        "mp-searchbar": "/miniprogram_npm/weui-miniprogram/searchbar/searchbar",
+        "mp-loading": "/miniprogram_npm/weui-miniprogram/loading/loading"
     }
 }

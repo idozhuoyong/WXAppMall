@@ -8,16 +8,8 @@
     <!-- 通知 -->
     <view class="notice" wx:if="{{noticeList.length > 0}}">
         <image class="notice_icon" src="/images/common/notice.png"></image>
-        <swiper 
-            class="notice_swiper" 
-            autoplay="true" 
-            interval="3000" 
-            circular="true" 
-            vertical="true">
-            <swiper-item 
-                class="notice_swiper_item" 
-                wx:for="{{noticeList}}" 
-                wx:key="id">
+        <swiper class="notice_swiper" autoplay="true" interval="3000" circular="true" vertical="true">
+            <swiper-item class="notice_swiper_item" wx:for="{{noticeList}}" wx:key="id">
                 <text>{{item.title}}</text>
             </swiper-item>
         </swiper>
@@ -25,14 +17,8 @@
 
     <!-- 商品类别 -->
     <view class="goodsCategory_box" wx:if="{{goodsCategory.length > 0}}">
-        <swiper 
-            class="goodsCategory_box" 
-            indicator-dots="{{goodsCategory.length > 1 ? true : false}}">
-            <swiper-item 
-                class="goodsCategory_box"
-                wx:for="{{goodsCategory}}" 
-                wx:for-item="goodsCategoryDatas" 
-                wx:key="*this">
+        <swiper class="goodsCategory_box" indicator-dots="{{goodsCategory.length > 1 ? true : false}}">
+            <swiper-item class="goodsCategory_box" wx:for="{{goodsCategory}}" wx:for-item="goodsCategoryDatas" wx:key="*this">
                 <view class="" wx:for="{{goodsCategoryDatas}}" wx:key="id">
                     <view class="goodsCategory_item">
                         <image class="goodsCategory_item_icon" src="{{item.icon}}"></image>
@@ -56,22 +42,75 @@
     <view class="" wx:if="{{goodsRecommend.length > 0}}">
         <view class="item_title_box">
             <view class="line"></view>
-            <view class="item_title"><text>爆品推荐</text></view>
+            <view class="item_title">
+                <text>爆品推荐</text>
+            </view>
             <view class="line"></view>
         </view>
         <!-- 商品展示 -->
         <view class="goods_container">
-          <view class="goods_box" wx:for="{{goodsRecommend}}" wx:key="id">
-            <view class="goods_img_box">
-              <image class="goods_img" src="{{item.pic}}"></image>
+            <view class="goods_box" wx:for="{{goodsRecommend}}" wx:key="id">
+                <view class="goods_img_box">
+                    <image class="goods_img" src="{{item.pic}}"></image>
+                </view>
+                <view class="goods_title">
+                    <text>{{item.name}}</text>
+                </view>
+                <view class="goods_price">
+                    <view class="goods_price_current">
+                        <text>￥{{item.minPrice}}</text>
+                    </view>
+                    <view class="goods_price_original">
+                        <text>￥{{item.originalPrice}}</text>
+                    </view>
+                </view>
             </view>
-            <view class="goods_title"><text>{{item.name}}</text></view>
-            <view class="goods_price">
-              <view class="goods_price_current"><text>￥{{item.minPrice}}</text></view>
-              <view class="goods_price_original"><text>￥{{item.originalPrice}}</text></view>
-            </view>
-          </view>
         </view>
-        <view style="height: 10rpx; background-color: #efefef;"></view>
+        <view style="padding-top: 10rpx; background-color: #efefef;"></view>
     </view>
+
+    <!-- 广告 -->
+    <ad unit-id="adunit-588264b3e2362e1e"></ad>
+
+    <!-- 疯狂砍价 -->
+
+    <!-- 全民拼团 -->
+
+    <!-- 商品列表 -->
+    <view class="" wx:if="{{goodsList.length > 0}}">
+        <view class="item_title_box">
+            <view class="line"></view>
+            <view class="item_title">
+                <text>商品列表</text>
+            </view>
+            <view class="line"></view>
+        </view>
+        <!-- 商品展示 -->
+        <view class="goods_container">
+            <view class="goods_box" wx:for="{{goodsList}}" wx:key="id">
+                <view class="goods_img_box">
+                    <image class="goods_img" src="{{item.pic}}"></image>
+                </view>
+                <view class="goods_title">
+                    <text>{{item.name}}</text>
+                </view>
+                <view class="goods_price">
+                    <view class="goods_price_current">
+                        <text>￥{{item.minPrice}}</text>
+                    </view>
+                    <view class="goods_price_original">
+                        <text>￥{{item.originalPrice}}</text>
+                    </view>
+                </view>
+            </view>
+        </view>
+        
+        <view class="loadmore_box">
+            <mp-loading type="circle" show="{{loadmoreShowType == 1 ? true : false}}"></mp-loading>
+            <view class="loadmore_text" wx:if="{{loadmoreShowType == 2 ? true : false}}">    
+                <text>没有更多啦</text>
+            </view>
+        </view>
+    </view>
+
 </view>

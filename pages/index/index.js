@@ -10,8 +10,16 @@ Page({
         noticeList: [], // 公告列表
         goodsCategory: [], // 商品类别
         banners: [], // 商品轮播
-        goodsRecommend: [] // 爆品推荐
+        goodsRecommend: [], // 爆品推荐
+        goodsList: [], // 商品列表
+
+        currentPage: 1,
+        pageSize: 10,
+        loadmoreShowType: 0
     },
+    /**
+     * 生命周期回调—监听页面加载
+     */
     onLoad() {
         // 获取公告
         this.getNoticeList();
@@ -19,8 +27,22 @@ Page({
         this.getGoodsCategory();
         // 获取商品轮播图
         this.getBanners();
-        // 获取商品
+        // 获取爆品推荐商品
         this.getGoods();
+        // 获取商品列表
+        this.getGoodsList(0);
+    },
+    /**
+     * 页面上拉触底事件的处理函数
+     */
+    onReachBottom() {
+        if (this.data.loadmoreShowType == 0) {
+            this.setData({
+                currentPage: this.data.currentPage + 1,
+                loadmoreShowType: 1
+            });
+            this.getGoodsList(0);
+        }
     },
 
     // 获取公告
@@ -74,17 +96,43 @@ Page({
             }
         });
     },
-    // 获取商品
+    // 爆品推荐
     getGoods() {
-        // bao'pin推荐
         WXAPI.goods({
             recommendStatus: "1"
         }).then(res => {
-            console.log(res);
-            console.log
+            // console.log(res);
             if (res.code === 0) {
                 this.setData({
                     goodsRecommend: res.data
+                });
+            }
+        });
+    },
+    /**
+     * 商品列表
+     * categoryId：获取指定分类下的商品
+     */
+    getGoodsList(categoryId) {
+        if (categoryId === 0) {
+            categoryId = ""; // 获取所有商品
+        }
+        WXAPI.goods({
+            categoryId: categoryId,
+            page: this.data.currentPage,
+            pageSize: this.data.pageSize
+        }).then(res => {
+            console.log(res);
+            if (res.code === 0) {
+                setTimeout(() => {
+                    this.setData({
+                        goodsList: this.data.goodsList.concat(res.data),
+                        loadmoreShowType: 0
+                    });
+                }, 2000);
+            } else {
+                this.setData({
+                    loadmoreShowType: 2
                 });
             }
         });
