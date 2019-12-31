@@ -29,6 +29,8 @@ Page({
         this.getBanners();
         // 获取爆品推荐商品
         this.getGoods();
+        // 获取砍价商品
+        this.getKanjiaGoodsList();
         // 获取商品列表
         this.getGoodsList(0);
     },
@@ -107,6 +109,14 @@ Page({
                     goodsRecommend: res.data
                 });
             }
+        });
+    },
+    // 获取砍价商品
+    getKanjiaGoodsList() {
+        WXAPI.goods({
+            kanjia: "true"
+        }).then(res => {
+            console.log(res);
         });
     },
     /**

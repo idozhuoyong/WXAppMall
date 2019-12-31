@@ -39,7 +39,7 @@
     </view>
 
     <!-- 爆品推荐 -->
-    <view class="" wx:if="{{goodsRecommend.length > 0}}">
+    <view class="goods_recommend_container" wx:if="{{goodsRecommend.length > 0}}">
         <view class="item_title_box">
             <view class="line"></view>
             <view class="item_title">
@@ -73,11 +73,34 @@
     <ad unit-id="adunit-588264b3e2362e1e"></ad>
 
     <!-- 疯狂砍价 -->
+    <view class="kanjia_container">
+        <view class="kanjia_title_box">
+            <text class="kanjia_title">疯狂砍价</text>
+            <view class="kanjia_title_line"></view>
+        </view>
+        <view class="kanjia_box" wx:for="12">
+            <view class="kanjia_icon_box">
+                <image class="kanjia_icon" src="https://cdn.it120.cc/apifactory/2019/07/11/3bfecdf0-16c5-4710-a8e7-dd6880543ece.gif"></image>
+            </view>
+            <!-- <view>
+                <text>男童防晒衣夏装薄外套2019年新款童装儿童中大童透气帅洋气休闲潮</text>
+                <text>尼多熊袜子，适合秋冬</text>
+                <view class="goods_price">
+                    <view class="goods_price_current">
+                        <text>￥88.88</text>
+                    </view>
+                    <view class="goods_price_original">
+                        <text>￥160</text>
+                    </view>
+                </view>
+            </view> -->
+        </view>
+    </view>
 
     <!-- 全民拼团 -->
 
     <!-- 商品列表 -->
-    <view class="" wx:if="{{goodsList.length > 0}}">
+    <view class="goods_list_container" wx:if="{{goodsList.length > 0}}">
         <view class="item_title_box">
             <view class="line"></view>
             <view class="item_title">
