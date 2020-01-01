@@ -70,31 +70,40 @@
     </view>
 
     <!-- 广告 -->
-    <ad unit-id="adunit-588264b3e2362e1e"></ad>
+    <!-- <ad unit-id="adunit-588264b3e2362e1e"></ad> -->
 
     <!-- 疯狂砍价 -->
     <view class="kanjia_container">
         <view class="kanjia_title_box">
             <text class="kanjia_title">疯狂砍价</text>
-            <view class="kanjia_title_line"></view>
         </view>
-        <view class="kanjia_box" wx:for="12">
+        <view class="kanjia_box" wx:for="{{kanjiaGoodsList}}" wx:key="id">
             <view class="kanjia_icon_box">
-                <image class="kanjia_icon" src="https://cdn.it120.cc/apifactory/2019/07/11/3bfecdf0-16c5-4710-a8e7-dd6880543ece.gif"></image>
+                <image class="kanjia_icon" src="{{item.pic}}"></image>
             </view>
-            <!-- <view>
-                <text>男童防晒衣夏装薄外套2019年新款童装儿童中大童透气帅洋气休闲潮</text>
-                <text>尼多熊袜子，适合秋冬</text>
-                <view class="goods_price">
-                    <view class="goods_price_current">
-                        <text>￥88.88</text>
+            <view class="kanjia_item_box">
+                <view class="kanjia_item_title">
+                    <text>{{item.name}}</text>
+                </view>
+                <view class="kanjia_item_desc">
+                    <text>{{item.characteristic}}</text>
+                </view>
+                <view class="kanjia_item_price">
+                    <view class="goods_price">
+                        <view class="goods_price_current">
+                            <text>￥{{item.minPrice}}</text>
+                        </view>
+                        <view class="goods_price_original">
+                            <text>￥{{item.originalPrice}}</text>
+                        </view>
                     </view>
-                    <view class="goods_price_original">
-                        <text>￥160</text>
+                    <view class="kanjia_btn_box">
+                        <button class="kanjia_btn">砍价</button>
                     </view>
                 </view>
-            </view> -->
+            </view>
         </view>
+        <view style="padding-top: 10rpx; background-color: #efefef;"></view>
     </view>
 
     <!-- 全民拼团 -->

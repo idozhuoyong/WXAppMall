@@ -11,6 +11,7 @@ Page({
         goodsCategory: [], // 商品类别
         banners: [], // 商品轮播
         goodsRecommend: [], // 爆品推荐
+        kanjiaGoodsList: [], // 砍价商品
         goodsList: [], // 商品列表
 
         currentPage: 1,
@@ -116,7 +117,12 @@ Page({
         WXAPI.goods({
             kanjia: "true"
         }).then(res => {
-            console.log(res);
+            // console.log(res);
+            if (res.code === 0) {
+                this.setData({
+                    kanjiaGoodsList: res.data
+                });
+            }
         });
     },
     /**
