@@ -12,6 +12,7 @@ Page({
         banners: [], // 商品轮播
         goodsRecommend: [], // 爆品推荐
         kanjiaGoodsList: [], // 砍价商品
+        pintuanGoodsList: [], // 拼团商品
         goodsList: [], // 商品列表
 
         currentPage: 1,
@@ -32,6 +33,8 @@ Page({
         this.getGoods();
         // 获取砍价商品
         this.getKanjiaGoodsList();
+        // 获取拼团商品
+        this.getPintuanGoodsList();
         // 获取商品列表
         this.getGoodsList(0);
     },
@@ -121,6 +124,19 @@ Page({
             if (res.code === 0) {
                 this.setData({
                     kanjiaGoodsList: res.data
+                });
+            }
+        });
+    },
+    // 获取拼团商品
+    getPintuanGoodsList() {
+        WXAPI.goods({
+            pingtuan: "true"
+        }).then(res => {
+            console.log(res);
+            if (res.code === 0) {
+                this.setData({
+                    pintuanGoodsList: res.data
                 });
             }
         });

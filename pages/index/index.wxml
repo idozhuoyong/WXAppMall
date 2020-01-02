@@ -70,10 +70,10 @@
     </view>
 
     <!-- 广告 -->
-    <!-- <ad unit-id="adunit-588264b3e2362e1e"></ad> -->
+    <ad unit-id="adunit-588264b3e2362e1e"></ad>
 
     <!-- 疯狂砍价 -->
-    <view class="kanjia_container">
+    <view class="kanjia_container" wx:if="{{kanjiaGoodsList.length > 0}}">
         <view class="kanjia_title_box">
             <text class="kanjia_title">疯狂砍价</text>
         </view>
@@ -107,6 +107,36 @@
     </view>
 
     <!-- 全民拼团 -->
+    <view class="pintuan_container" wx:if="{{pintuanGoodsList.length > 0}}">
+        <view class="item_title_box" style="background-color: #fff;">
+            <view class="line"></view>
+            <view class="item_title"><text>全民拼团</text></view>
+            <view class="line"></view>
+        </view>
+        <view class="pintuan_box" wx:for="{{pintuanGoodsList}}" wx:key="id">
+            <view class="pintuan_img_box">
+                <image class="pintuan_img" mode="aspectFill" src="{{item.pic}}"></image>
+            </view>
+            <view class="pintuan_item">
+                <view class="pintuan_item_title"><text>{{item.name}}</text></view>
+                <view class="pintuan_item_desc"><text>{{item.characteristic}}</text></view>
+                <view class="pintuan_item_price">
+                    <view class="goods_price">
+                        <view class="goods_price_current">
+                            <text>￥{{item.minPrice}}</text>
+                        </view>
+                        <view class="goods_price_original">
+                            <text>￥{{item.originalPrice}}</text>
+                        </view>
+                    </view>
+                    <view class="kanjia_btn_box">
+                        <button class="kanjia_btn">拼团</button>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view style="padding-top: 10rpx; background-color: #efefef;"></view>
+    </view>
 
     <!-- 商品列表 -->
     <view class="goods_list_container" wx:if="{{goodsList.length > 0}}">
