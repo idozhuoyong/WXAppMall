@@ -39,6 +39,25 @@ Page({
         this.getGoodsList(0);
     },
     /**
+     * 监听用户下拉动作
+     */
+    onPullDownRefresh() {
+        // 获取公告
+        this.getNoticeList();
+        // 获取商品分类
+        this.getGoodsCategory();
+        // 获取商品轮播图
+        this.getBanners();
+        // 获取爆品推荐商品
+        this.getGoods();
+        // 获取砍价商品
+        this.getKanjiaGoodsList();
+        // 获取拼团商品
+        this.getPintuanGoodsList();
+        // 获取商品列表
+        this.getGoodsList(0, true);
+    },
+    /**
      * 页面上拉触底事件的处理函数
      */
     onReachBottom() {
@@ -133,7 +152,7 @@ Page({
         WXAPI.goods({
             pingtuan: "true"
         }).then(res => {
-            console.log(res);
+            // console.log(res);
             if (res.code === 0) {
                 this.setData({
                     pintuanGoodsList: res.data
@@ -145,27 +164,45 @@ Page({
      * 商品列表
      * categoryId：获取指定分类下的商品
      */
-    getGoodsList(categoryId) {
+    getGoodsList(categoryId, isPullDownRefresh) {
         if (categoryId === 0) {
             categoryId = ""; // 获取所有商品
         }
+        let currentPage = this.data.currentPage;
+        if (isPullDownRefresh) {
+            currentPage = 1;
+        }
         WXAPI.goods({
             categoryId: categoryId,
-            page: this.data.currentPage,
+            page: currentPage,
             pageSize: this.data.pageSize
         }).then(res => {
             // console.log(res);
+            if (isPullDownRefresh) {
+                // 关闭下拉刷新
+                wx.stopPullDownRefresh();
+            }
             if (res.code === 0) {
-                setTimeout(() => {
-                    this.setData({
-                        goodsList: this.data.goodsList.concat(res.data),
-                        loadmoreShowType: 0
-                    });
-                }, 2000);
-            } else {
+                // 交易成功
+                let goodsList = [];
+                if (isPullDownRefresh) {
+                    goodsList = res.data;
+                } else {
+                    goodsList = this.data.goodsList.concat(res.data);
+                }
+
                 this.setData({
-                    loadmoreShowType: 2
+                    goodsList: goodsList,
+                    loadmoreShowType: 0,
+                    currentPage: currentPage
                 });
+            } else {
+                // 交易失败
+                if (!isPullDownRefresh) {
+                    this.setData({
+                        loadmoreShowType: 2
+                    });
+                }
             }
         });
     },

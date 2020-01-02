@@ -1,7 +1,7 @@
 <!--pages/index/index.wxml-->
 <view class="container">
     <!-- 搜索部分 -->
-    <view class="page__bd">
+    <view class="search_container">
         <mp-searchbar bindselectresult="selectResult"></mp-searchbar>
     </view>
 
