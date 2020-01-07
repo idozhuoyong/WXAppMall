@@ -1,2 +1,31 @@
 <!--pages/category/category.wxml-->
-<text>pages/category/category.wxml</text>
+<view class="container">
+<view class="content_container">
+    <scroll-view class="nav_container" scroll-y="true">
+        <view class="{{item.id == navSelectedIndex ? 'nav_item ellipsis nav_item_active' : 'nav_item ellipsis'}}" wx:for="{{navList}}" wx:key="id">
+            <text>{{item.name}}</text>
+        </view>
+    </scroll-view>
+    <scroll-view class="item_container" scroll-y="true">
+        <view class="item_title ellipsis"><text>上装</text></view>
+        <view class="item_box" wx:for="1234567890">
+            <view class="item_icon_box">
+                <image src=""></image>
+            </view>
+            <view class="item_desc_box">
+                <view class="item_desc ellipsis"><text>儿童睡衣男童儿童睡衣男童儿童睡衣男童</text></view>
+                <view class="item_desc ellipsis price weight"><text>￥190</text></view>
+                <view class="item_desc_box2">
+                    <view class="item_desc_yishou_box ellipsis">
+                        <text class="item_desc_yishou">已售19件</text>
+                    </view>
+                    <view class="item_desc_pingjian_box ellipsis">
+                        <text>评价0分</text>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </scroll-view>
+</view>
+
+</view>
