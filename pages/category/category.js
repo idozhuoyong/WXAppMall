@@ -8,20 +8,8 @@ Page({
      * 页面的初始数据
      */
     data: {
-        navList: [{
-            name: "上装",
-            id: "1"
-        }, {
-            name: "裤装",
-            id: "2"
-        }, {
-            name: "特价区",
-            id: "3"
-        }, {
-            name: "裙装",
-            id: "4"
-        }],
-        navSelectedIndex: "2",
+        categoryList: [],
+        selectedCategory: {},
     },
 
     /**
@@ -30,6 +18,16 @@ Page({
     onLoad: function(options) {
         WXAPI.goodsCategory().then(res => {
             console.log(res);
+            if (res.code === 0) {
+                let selectedCategory = {};
+                if (res.data && res.data.length > 0) {
+                    selectedCategory = res.data[0];
+                }
+                this.setData({
+                    categoryList: res.data,
+                    selectedCategory: selectedCategory
+                });
+            }
         });
     }
 

@@ -2,7 +2,7 @@
 <view class="container">
 <view class="content_container">
     <scroll-view class="nav_container" scroll-y="true">
-        <view class="{{item.id == navSelectedIndex ? 'nav_item ellipsis nav_item_active' : 'nav_item ellipsis'}}" wx:for="{{navList}}" wx:key="id">
+        <view class="{{item.id == selectedCategory.id ? 'nav_item ellipsis nav_item_active' : 'nav_item ellipsis'}}" wx:for="{{categoryList}}" wx:key="id">
             <text>{{item.name}}</text>
         </view>
     </scroll-view>
