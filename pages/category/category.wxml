@@ -2,25 +2,31 @@
 <view class="container">
 <view class="content_container">
     <scroll-view class="nav_container" scroll-y="true">
-        <view class="{{item.id == selectedCategory.id ? 'nav_item ellipsis nav_item_active' : 'nav_item ellipsis'}}" wx:for="{{categoryList}}" wx:key="id">
+        <view class="{{item.id == selectedCategory.id ? 'nav_item ellipsis nav_item_active' : 'nav_item ellipsis'}}" wx:for="{{categoryList}}" wx:key="id" bindtap="onHandlerCategoryClick" data-selected-catetory="{{item}}">
             <text>{{item.name}}</text>
         </view>
     </scroll-view>
     <scroll-view class="item_container" scroll-y="true">
-        <view class="item_title ellipsis"><text>上装</text></view>
-        <view class="item_box" wx:for="1234567890">
+        <view class="item_title ellipsis"><text>{{selectedCategory.name}}</text></view>
+        <view class="loadmore_box" wx:if="{{goodsList.length == 0}}">
+            <mp-loading type="circle" show="{{loadmoreShowType == 1 ? true : false}}"></mp-loading>
+            <view class="loadmore_text" wx:if="{{loadmoreShowType == 2 ? true : false}}">    
+                <text>没有更多啦</text>
+            </view>
+        </view>
+        <view class="item_box" wx:for="{{goodsList}}" wx:key="id">
             <view class="item_icon_box">
-                <image src=""></image>
+                <image src="{{item.pic}}"></image>
             </view>
             <view class="item_desc_box">
-                <view class="item_desc ellipsis"><text>儿童睡衣男童儿童睡衣男童儿童睡衣男童</text></view>
-                <view class="item_desc ellipsis price weight"><text>￥190</text></view>
+                <view class="item_desc ellipsis"><text>{{item.name}}</text></view>
+                <view class="item_desc ellipsis price weight"><text>￥{{item.minPrice}}</text></view>
                 <view class="item_desc_box2">
                     <view class="item_desc_yishou_box ellipsis">
-                        <text class="item_desc_yishou">已售19件</text>
+                        <text class="item_desc_yishou">已售{{item.numberOrders}}件</text>
                     </view>
                     <view class="item_desc_pingjian_box ellipsis">
-                        <text>评价0分</text>
+                        <text>评价{{item.gotScore}}分</text>
                     </view>
                 </view>
             </view>

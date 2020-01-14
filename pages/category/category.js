@@ -8,8 +8,10 @@ Page({
      * 页面的初始数据
      */
     data: {
+        loadmoreShowType: 0,
         categoryList: [],
         selectedCategory: {},
+        goodsList: []
     },
 
     /**
@@ -17,7 +19,7 @@ Page({
      */
     onLoad: function(options) {
         WXAPI.goodsCategory().then(res => {
-            console.log(res);
+            // console.log(res);
             if (res.code === 0) {
                 let selectedCategory = {};
                 if (res.data && res.data.length > 0) {
@@ -27,7 +29,52 @@ Page({
                     categoryList: res.data,
                     selectedCategory: selectedCategory
                 });
+                this.getGoodsList();
             }
+        });
+    },
+
+    /**
+     * 事件处理函数
+     */
+    onHandlerCategoryClick(e) {
+        console.log();
+        if (e.currentTarget.dataset.selectedCatetory) {
+            this.setData({
+                selectedCategory: e.currentTarget.dataset.selectedCatetory
+            });
+            this.getGoodsList();
+        }
+    },
+
+    /**
+     * 发送交易
+     */
+    getGoodsList() {
+        this.setData({
+            goodsList: [],
+            loadmoreShowType: 1
+        });
+
+        WXAPI.goods({
+            categoryId: this.data.selectedCategory.id,
+            page: "1",
+            pageSize: "100000"
+        }).then(res => {
+            // console.log(res);
+            let goodsList = [];
+            let loadmoreShowType = 0;
+
+            if (res.code === 0) {
+                goodsList = res.data;
+            } else {
+                loadmoreShowType = 2;
+            }
+
+            this.setData({
+                goodsList: goodsList,
+                loadmoreShowType: loadmoreShowType
+            });
         });
     }
 
