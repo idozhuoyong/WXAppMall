@@ -13,5 +13,17 @@ Page({
      */
     onLoad: function (options) {
 
+    },
+    onShow() {
+        wx.login({
+            success(res) {
+                console.log(res);
+                wx.getUserInfo({
+                    success(res) {
+                        console.log(res);
+                    }
+                });
+            }
+        });
     }
 })

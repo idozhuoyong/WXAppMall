@@ -1,0 +1,6 @@
+<!--template/login/login.wxml-->
+<template name="login">
+    <view>
+        <text>{{foo}}</text>
+    </view>
+</template>
