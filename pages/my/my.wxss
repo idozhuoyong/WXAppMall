@@ -1,1 +1,70 @@
 /* pages/my/my.wxss */
+.userinfo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20rpx;
+}
+.userinfo_icon {
+    width: 160rpx;
+    height: 160rpx;
+    margin-bottom: 15rpx;
+}
+.asset {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin: 20rpx 0 0;
+    border-top: 1rpx solid #efefef;
+    padding: 20rpx 0;
+}
+.asset_item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #333;
+    flex: 1;
+    font-size: 26rpx;
+}
+.border_right {
+    border-right: 1rpx solid #efefef;
+}
+
+
+.order_title {
+    padding: 15rpx 20rpx 15rpx 50rpx;
+    font-size: 28rpx;
+    background: url(https://cdn.it120.cc/images/weappshop/arrow-right.png) no-repeat right 20rpx center;
+    background-size: 16rpx;
+}
+.order_items {
+    display: flex;
+    flex-direction: row;
+    border-top: 1rpx solid #efefef;
+    padding: 20rpx;
+}
+.order_item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+}
+.order_item_icon {
+    width: 67rpx;
+    height: 67rpx;
+}
+.order_item_text {
+    font-size: 24rpx;
+    color: #333;
+}
+
+.my_item {
+    font-size: 28rpx;
+    padding: 15rpx 20rpx 15rpx 50rpx;
+    background: url(https://cdn.it120.cc/images/weappshop/arrow-right.png) no-repeat right 20rpx center;
+    background-size: 16rpx;
+}
